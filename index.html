@@ -111,6 +111,56 @@
     font-size:1.2rem;color:var(--gold);max-width:44ch;
   }
 
+  .bench-shot-link{display:block;margin-bottom:18px;border:1px solid var(--line);transition:opacity .2s ease;}
+  .bench-shot-link:hover{opacity:0.85;}
+  .bench-shot{width:100%;display:block;}
+
+  /* PROYECCION */
+  .proj-note{
+    margin-top:34px;padding:18px 22px;border:1px dashed var(--porcelain-dim);
+    color:var(--porcelain-dim);font-size:0.88rem;font-style:italic;max-width:60ch;
+  }
+  .proj-hook{font-size:clamp(1.5rem,3.6vw,2rem);margin-top:36px;max-width:20ch;}
+  .proj-grid{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  @media(max-width:720px){.proj-grid{grid-template-columns:1fr;}}
+  .proj-col{background:var(--ink);padding:28px 26px;}
+  .proj-col.digital{background:var(--ink-2);border-top:2px solid var(--gold);}
+  .proj-col h4{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--porcelain-dim);margin-bottom:4px;}
+  .proj-col .proj-sub{font-size:0.82rem;color:var(--porcelain-dim);margin-bottom:22px;}
+  .slider-block{margin-bottom:22px;}
+  .slider-block label{display:flex;justify-content:space-between;font-size:0.88rem;margin-bottom:8px;}
+  .slider-block label .val{font-family:'IBM Plex Mono',monospace;color:var(--radiograph);}
+  .proj-col.digital .slider-block label .val{color:var(--gold);}
+  input[type="range"]{
+    width:100%;-webkit-appearance:none;height:3px;background:var(--line);outline:none;
+  }
+  input[type="range"]::-webkit-slider-thumb{
+    -webkit-appearance:none;width:16px;height:16px;border-radius:50%;
+    background:var(--radiograph);cursor:pointer;
+  }
+  .proj-col.digital input[type="range"]::-webkit-slider-thumb{background:var(--gold);}
+  input[type="range"]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--radiograph);cursor:pointer;border:none;}
+  .proj-col.digital input[type="range"]::-moz-range-thumb{background:var(--gold);}
+  .proj-result{
+    margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
+  }
+  .proj-result .r-label{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--porcelain-dim);text-transform:uppercase;letter-spacing:0.06em;}
+  .proj-result .r-num{font-family:'Fraunces',serif;font-size:1.7rem;color:var(--radiograph);margin-top:4px;}
+  .proj-col.digital .proj-result .r-num{color:var(--gold);}
+  .proj-result .r-sub{font-size:0.82rem;color:var(--porcelain-dim);margin-top:6px;}
+  .proj-multiplier{
+    margin-top:44px;text-align:center;padding:26px;border:1px solid var(--gold);background:var(--ink-2);
+  }
+  .proj-multiplier .m-num{font-family:'Fraunces',serif;font-size:2.4rem;color:var(--gold);}
+  .proj-multiplier .m-label{font-size:0.92rem;color:var(--porcelain-dim);margin-top:6px;}
+  .mission-block{
+    margin-top:56px;padding:40px 36px;background:var(--porcelain);color:var(--ink);
+  }
+  .mission-block p{
+    font-family:'Fraunces',serif;font-size:clamp(1.3rem,3vw,1.7rem);line-height:1.4;
+  }
+  .mission-block u{text-decoration-color:var(--coral);text-decoration-thickness:3px;text-underline-offset:4px;}
+
   /* YA TRABAJANDO */
   .work-grid{margin-top:40px;display:flex;flex-direction:column;gap:1px;background:var(--line);border:1px solid var(--line);}
   .work-item{background:var(--ink);padding:26px 28px;display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start;}
@@ -233,6 +283,9 @@
       </div>
       <div class="bench-col them">
         <h4>Consultorio de referencia en GDL</h4>
+        <a href="https://www.instagram.com/alldenticlinic/" target="_blank" rel="noopener" class="bench-shot-link">
+          <img src="alldenticlinic.png" alt="Perfil de Instagram @alldenticlinic" class="bench-shot">
+        </a>
         <div class="bench-row"><span>Seguidores</span><span>2,209</span></div>
         <div class="bench-row"><span>Publicaciones</span><span>565</span></div>
         <div class="bench-row"><span>Posicionamiento</span><span>"Dras. expertas en tu sonrisa"</span></div>
@@ -294,9 +347,130 @@
   </div>
 </section>
 
+<section id="proyeccion">
+  <div class="wrap">
+    <div class="eyebrow mono">Ficha 06 · Proyección</div>
+    <h2 class="reveal proj-hook">¿Qué pasaría si el Dr. Gerardo trabajara menos y ganara varias veces más?</h2>
+    <p class="reveal" style="color:var(--porcelain-dim);max-width:58ch;margin-top:16px;">Tu modelo de hoy — consultorio uno a uno — tiene un techo natural: solo puedes atender a las horas que tienes. Esto es lo que pasa cuando le sumas encima un sistema digital que no depende de tu tiempo.</p>
+    <p class="proj-note reveal">Los números de abajo son un punto de partida, no una promesa — ajústenlos juntos conmigo en la llamada a lo que realmente factura hoy.</p>
+
+    <div class="proj-grid reveal">
+      <div class="proj-col">
+        <h4>Hoy: solo consultorio uno a uno</h4>
+        <div class="proj-sub">Depende 100% de tus horas disponibles</div>
+
+        <div class="slider-block">
+          <label><span>Pacientes por semana</span><span class="val" id="v-pac">15</span></label>
+          <input type="range" id="s-pac" min="5" max="40" value="15">
+        </div>
+        <div class="slider-block">
+          <label><span>Ticket promedio por consulta (MXN)</span><span class="val" id="v-tick">600</span></label>
+          <input type="range" id="s-tick" min="300" max="2000" step="50" value="600">
+        </div>
+
+        <div class="proj-result">
+          <div class="r-label">Ingreso mensual estimado</div>
+          <div class="r-num" id="r-hoy">$39,015 MXN</div>
+          <div class="r-sub">Con techo — depende 100% de tu tiempo y capacidad de silla</div>
+        </div>
+      </div>
+
+      <div class="proj-col digital">
+        <h4>Con presencia digital, encima de lo anterior</h4>
+        <div class="proj-sub">Ingresos que no dependen de más horas tuyas</div>
+
+        <div class="slider-block">
+          <label><span>Pacientes de ortodoncia activos (mensualidad)</span><span class="val" id="v-ortoN">5</span></label>
+          <input type="range" id="s-ortoN" min="0" max="30" value="5">
+        </div>
+        <div class="slider-block">
+          <label><span>Mensualidad de ortodoncia (MXN)</span><span class="val" id="v-ortoP">700</span></label>
+          <input type="range" id="s-ortoP" min="400" max="1500" step="50" value="700">
+        </div>
+
+        <div class="slider-block">
+          <label><span>Pacientes de implante por mes</span><span class="val" id="v-impN">1</span></label>
+          <input type="range" id="s-impN" min="0" max="5" value="1">
+        </div>
+        <div class="slider-block">
+          <label><span>Ticket promedio por implante (MXN)</span><span class="val" id="v-impP">25,000</span></label>
+          <input type="range" id="s-impP" min="15000" max="35000" step="1000" value="25000">
+        </div>
+
+        <div class="slider-block">
+          <label><span>Miembros en plan de mantenimiento preventivo</span><span class="val" id="v-memN">20</span></label>
+          <input type="range" id="s-memN" min="0" max="80" value="20">
+        </div>
+        <div class="slider-block">
+          <label><span>Cuota mensual del plan (MXN)</span><span class="val" id="v-memP">150</span></label>
+          <input type="range" id="s-memP" min="50" max="300" step="10" value="150">
+        </div>
+
+        <div class="proj-result">
+          <div class="r-label">Ingreso mensual total estimado</div>
+          <div class="r-num" id="r-total">$0 MXN</div>
+          <div class="r-sub">Consultorio + ortodoncia + implantes + membresía preventiva</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proj-multiplier reveal">
+      <div class="m-num" id="r-mult">1.0x</div>
+      <div class="m-label">lo que genera hoy — sin sumar más horas de silla</div>
+    </div>
+
+    <div class="mission-block reveal">
+      <p>Un dentista con años de formación real, cédula y casos que respaldan su trabajo <u>no debería ganar menos</u> que alguien sin preparación que solo genera contenido superficial en redes.</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  (function(){
+    const $ = (id) => document.getElementById(id);
+    const fmt = (n) => '$' + Math.round(n).toLocaleString('es-MX') + ' MXN';
+
+    const pac = $('s-pac'), tick = $('s-tick');
+    const ortoN = $('s-ortoN'), ortoP = $('s-ortoP');
+    const impN = $('s-impN'), impP = $('s-impP');
+    const memN = $('s-memN'), memP = $('s-memP');
+
+    function recalc(){
+      const pacientes = parseFloat(pac.value);
+      const ticket = parseFloat(tick.value);
+      const hoy = pacientes * ticket * 4.33;
+
+      const ortoIngreso = parseFloat(ortoN.value) * parseFloat(ortoP.value);
+      const impIngreso = parseFloat(impN.value) * parseFloat(impP.value);
+      const memIngreso = parseFloat(memN.value) * parseFloat(memP.value);
+
+      const total = hoy + ortoIngreso + impIngreso + memIngreso;
+      const mult = hoy > 0 ? (total / hoy) : 0;
+
+      $('v-pac').textContent = pacientes;
+      $('v-tick').textContent = ticket.toLocaleString('es-MX');
+      $('v-ortoN').textContent = ortoN.value;
+      $('v-ortoP').textContent = parseFloat(ortoP.value).toLocaleString('es-MX');
+      $('v-impN').textContent = impN.value;
+      $('v-impP').textContent = parseFloat(impP.value).toLocaleString('es-MX');
+      $('v-memN').textContent = memN.value;
+      $('v-memP').textContent = parseFloat(memP.value).toLocaleString('es-MX');
+
+      $('r-hoy').textContent = fmt(hoy);
+      $('r-total').textContent = fmt(total);
+      $('r-mult').textContent = mult.toFixed(1) + 'x';
+    }
+
+    [pac, tick, ortoN, ortoP, impN, impP, memN, memP].forEach(el=>{
+      el.addEventListener('input', recalc);
+    });
+    recalc();
+  })();
+</script>
+
 <section id="quien">
   <div class="wrap">
-    <div class="eyebrow mono">Ficha 06 · Quién te acompaña</div>
+    <div class="eyebrow mono">Ficha 07 · Quién te acompaña</div>
     <h2 class="reveal">Trabajo como socio, no como proveedor</h2>
     <div class="who reveal">
       <p>Soy <strong>Shadow Operator</strong>: escalo negocios digitales trabajando detrás de escena para que la marca al frente sea la del experto, no la mía.</p>
@@ -308,7 +482,7 @@
 
 <section class="cta-section" id="cta">
   <div class="wrap">
-    <div class="eyebrow mono" style="justify-content:center;">Ficha 07 · Siguiente paso</div>
+    <div class="eyebrow mono" style="justify-content:center;">Ficha 08 · Siguiente paso</div>
     <h2 class="reveal">Hablemos 30 minutos y revisamos tu caso a detalle</h2>
     <p class="reveal">Sin presión, sin números todavía — solo para entender a fondo hacia dónde quieres llevar Condent y ver si tiene sentido trabajar juntos.</p>
     <a class="wa-btn reveal" href="https://wa.me/522205717032?text=Hola%20Alex%2C%20vi%20la%20presentaci%C3%B3n%20y%20me%20interesa%20explorar%20c%C3%B3mo%20podr%C3%ADa%20funcionar%20esto%20para%20Condent." target="_blank" rel="noopener">
