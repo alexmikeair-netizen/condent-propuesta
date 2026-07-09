@@ -444,10 +444,37 @@
           <input type="range" id="s-memP" min="50" max="300" step="10" value="150">
         </div>
 
+        <div class="slider-block">
+          <label><span>Paquetes/kits dentales vendidos al mes (adulto y niño)</span><span class="val" id="v-kitN">20</span></label>
+          <input type="range" id="s-kitN" min="0" max="100" value="20">
+        </div>
+        <div class="slider-block">
+          <label><span>Precio promedio por kit (MXN)</span><span class="val" id="v-kitP">450</span></label>
+          <input type="range" id="s-kitP" min="200" max="900" step="25" value="450">
+        </div>
+
+        <div class="slider-block">
+          <label><span>Herramientas profesionales vendidas a otros dentistas / mes</span><span class="val" id="v-herN">2</span></label>
+          <input type="range" id="s-herN" min="0" max="10" value="2">
+        </div>
+        <div class="slider-block">
+          <label><span>Precio promedio por herramienta o kit profesional (MXN)</span><span class="val" id="v-herP">2,500</span></label>
+          <input type="range" id="s-herP" min="1000" max="8000" step="250" value="2500">
+        </div>
+
+        <div class="slider-block">
+          <label><span>La cúspide: dentistas formados en tu método de emprendimiento / mes</span><span class="val" id="v-formN">0</span></label>
+          <input type="range" id="s-formN" min="0" max="3" value="0">
+        </div>
+        <div class="slider-block">
+          <label><span>Precio del programa de formación (MXN)</span><span class="val" id="v-formP">15,000</span></label>
+          <input type="range" id="s-formP" min="8000" max="30000" step="1000" value="15000">
+        </div>
+
         <div class="proj-result">
           <div class="r-label">Ingreso mensual total estimado</div>
           <div class="r-num" id="r-total">$0 MXN</div>
-          <div class="r-sub">Consultorio + ortodoncia + implantes + membresía preventiva</div>
+          <div class="r-sub">Consultorio + ortodoncia + implantes + membresía + kits + herramientas + formación</div>
         </div>
       </div>
     </div>
@@ -472,6 +499,9 @@
     const ortoN = $('s-ortoN'), ortoP = $('s-ortoP');
     const impN = $('s-impN'), impP = $('s-impP');
     const memN = $('s-memN'), memP = $('s-memP');
+    const kitN = $('s-kitN'), kitP = $('s-kitP');
+    const herN = $('s-herN'), herP = $('s-herP');
+    const formN = $('s-formN'), formP = $('s-formP');
 
     function recalc(){
       const pacientes = parseFloat(pac.value);
@@ -481,8 +511,11 @@
       const ortoIngreso = parseFloat(ortoN.value) * parseFloat(ortoP.value);
       const impIngreso = parseFloat(impN.value) * parseFloat(impP.value);
       const memIngreso = parseFloat(memN.value) * parseFloat(memP.value);
+      const kitIngreso = parseFloat(kitN.value) * parseFloat(kitP.value);
+      const herIngreso = parseFloat(herN.value) * parseFloat(herP.value);
+      const formIngreso = parseFloat(formN.value) * parseFloat(formP.value);
 
-      const total = hoy + ortoIngreso + impIngreso + memIngreso;
+      const total = hoy + ortoIngreso + impIngreso + memIngreso + kitIngreso + herIngreso + formIngreso;
       const mult = hoy > 0 ? (total / hoy) : 0;
 
       $('v-pac').textContent = pacientes;
@@ -493,13 +526,19 @@
       $('v-impP').textContent = parseFloat(impP.value).toLocaleString('es-MX');
       $('v-memN').textContent = memN.value;
       $('v-memP').textContent = parseFloat(memP.value).toLocaleString('es-MX');
+      $('v-kitN').textContent = kitN.value;
+      $('v-kitP').textContent = parseFloat(kitP.value).toLocaleString('es-MX');
+      $('v-herN').textContent = herN.value;
+      $('v-herP').textContent = parseFloat(herP.value).toLocaleString('es-MX');
+      $('v-formN').textContent = formN.value;
+      $('v-formP').textContent = parseFloat(formP.value).toLocaleString('es-MX');
 
       $('r-hoy').textContent = fmt(hoy);
       $('r-total').textContent = fmt(total);
       $('r-mult').textContent = mult.toFixed(1) + 'x';
     }
 
-    [pac, tick, ortoN, ortoP, impN, impP, memN, memP].forEach(el=>{
+    [pac, tick, ortoN, ortoP, impN, impP, memN, memP, kitN, kitP, herN, herP, formN, formP].forEach(el=>{
       el.addEventListener('input', recalc);
     });
     recalc();
