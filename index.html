@@ -186,6 +186,35 @@
   .who{margin-top:36px;display:flex;flex-direction:column;gap:14px;color:var(--porcelain-dim);font-size:0.96rem;max-width:60ch;}
   .who strong{color:var(--porcelain);font-weight:500;}
 
+  /* PORTAFOLIO */
+  .port-group{margin-top:40px;}
+  .port-group-label{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--porcelain-dim);margin-bottom:14px;}
+  .port-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-bottom:8px;}
+  @media(max-width:640px){.port-cards{grid-template-columns:1fr;}}
+  .port-card{
+    background:var(--ink);padding:20px 20px;display:flex;flex-direction:column;gap:6px;
+    text-decoration:none;color:inherit;transition:background .2s ease;
+  }
+  .port-card:hover{background:var(--ink-2);}
+  .port-card .p-handle{font-family:'Fraunces',serif;font-size:1.02rem;color:var(--porcelain);}
+  .port-card .p-desc{font-size:0.82rem;color:var(--porcelain-dim);}
+  .port-single{
+    display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    padding:18px 22px;border:1px solid var(--line);margin-bottom:1px;text-decoration:none;color:inherit;
+    transition:background .2s ease;
+  }
+  .port-single:hover{background:var(--ink-2);}
+  .port-single .p-handle{font-family:'Fraunces',serif;font-size:1.02rem;color:var(--porcelain);}
+  .port-single .p-desc{font-size:0.82rem;color:var(--porcelain-dim);}
+  .port-tag{font-family:'IBM Plex Mono',monospace;font-size:0.66rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--gold);white-space:nowrap;}
+  .port-mentor{
+    margin-top:34px;padding:20px 22px;border-left:2px solid var(--radiograph);background:var(--ink-2);
+    display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+  .port-mentor a{color:var(--radiograph);text-decoration:none;font-family:'Fraunces',serif;font-size:1.02rem;}
+  .port-mentor a:hover{text-decoration:underline;}
+  .port-mentor .p-desc{font-size:0.85rem;color:var(--porcelain-dim);}
+
   /* CTA */
   .cta-section{text-align:center;border-top:1px solid var(--line);}
   .cta-section h2{font-size:clamp(1.8rem,4vw,2.6rem);max-width:16ch;margin:0 auto 20px;}
@@ -197,6 +226,15 @@
     text-decoration:none;transition:transform .25s ease, background .25s ease;
   }
   .wa-btn:hover{transform:translateY(-2px);background:#dbb476;}
+  .portfolio-btn{
+    display:inline-flex;align-items:center;gap:10px;
+    background:transparent;color:var(--porcelain);
+    border:1px solid var(--line);
+    padding:14px 30px;font-family:'Inter',sans-serif;font-weight:500;font-size:0.92rem;
+    text-decoration:none;transition:border-color .25s ease, color .25s ease;
+    margin-top:16px;
+  }
+  .portfolio-btn:hover{border-color:var(--radiograph);color:var(--radiograph);}
   .final-line{margin-top:56px;font-family:'Fraunces',serif;font-style:italic;font-size:1.15rem;color:var(--radiograph);max-width:40ch;margin-left:auto;margin-right:auto;}
   footer{padding:36px 0;text-align:center;color:var(--porcelain-dim);font-size:0.78rem;font-family:'IBM Plex Mono',monospace;border-top:1px solid var(--line);}
 
@@ -487,6 +525,10 @@
     <p class="reveal">Sin presión, sin números todavía — solo para entender a fondo hacia dónde quieres llevar Condent y ver si tiene sentido trabajar juntos.</p>
     <a class="wa-btn reveal" href="https://wa.me/522205717032?text=Hola%20Alex%2C%20vi%20la%20presentaci%C3%B3n%20y%20me%20interesa%20explorar%20c%C3%B3mo%20podr%C3%ADa%20funcionar%20esto%20para%20Condent." target="_blank" rel="noopener">
       Agendar llamada de diagnóstico
+    </a>
+    <br>
+    <a class="portfolio-btn reveal" href="https://alexmikeair-netizen.github.io/precio-justo-beai/" target="_blank" rel="noopener">
+      Ver portafolio y análisis de competencia
     </a>
     <p class="final-line reveal">Tu trabajo ya genera 5.0 estrellas. Falta que el resto de Zapopan lo sepa.</p>
   </div>
